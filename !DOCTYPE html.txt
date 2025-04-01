@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUQADDAS SIDDIQU - Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 250px 250px 0 0;
+            border-color: #0b82f9 transparent transparent transparent;
+            z-index: 0;
+        }
+        .sidebar {
+            width: 35%;
+            color: white;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .main-content {
+            width: 65%;
+            padding: 30px;
+            background: white;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid white;
+            position: relative;
+            z-index: 2;
+        }
+        .name-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+            color: #87CEEB;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 0;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        .sidebar-header {
+            color: #87CEEB;
+            text-align: center;
+        }
+        .main-header {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            text-align: left;
+        }
+        
+        /* About Me Section */
+        .about-me {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Work Experience & Education - Horizontal Layout */
+        .item-container {
+            margin-bottom: 30px;
+        }
+        .header-row {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        .left-col {
+            width: 30%;
+            font-weight: bold;
+        }
+        .right-col {
+            width: 70%;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+        }
+        .detail-row {
+            display: flex;
+        }
+        .date-col {
+            width: 30%;
+            font-style: italic;
+            color: #666;
+        }
+        .description-col {
+            width: 70%;
+            text-align: justify;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .skill-row {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: center;
+        }
+        .skill-name {
+            width: 120px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .progress-container {
+            flex-grow: 1;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: #050709;
+        }
+        
+        /* Software & Languages */
+        .software-section {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .software-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 20px;
+        }
+        .software-item {
+            margin-bottom: 4px;
+            break-inside: avoid;
+            font-size: 13px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .contact-info p {
+            margin: 4px 0;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+        .contact-info i {
+            margin-right: 8px;
+            width: 18px;
+            text-align: center;
+        }
+        
+        /* Reference Section */
+        .reference-section {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .reference-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        /* Hobbies with Images */
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70px;
+        }
+        .hobby-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 4px;
+        }
+        .hobby-name {
+            text-align: center;
+            font-size: 11px;
+        }
+        
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,0.3);
+            margin: 18px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* New divider style for section headers */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .section-divider-line {
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.3);
+        }
+        .section-divider-title {
+            padding: 0 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #87CEEB;
+            font-size: 16px;
+        }
+        
+        /* Section bottom divider */
+        .section-bottom-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="prodile.jpg" alt="Muqaddas img" class="profile-img">
+            <div class="name-title">
+                <h1 class="name">MUQADDAS SIDDIQUE</h1>
+                <p class="" style="color: #1f272a;">SOFTWARE ENGINEER  </p>
+            </div>
+            
+            <!-- About Me with divider -->
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-title" >ABOUT ME</div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="section-bottom-divider"></div>
+
+            <div class="about-me">
+                <p style="color: #000000;">To obtain a position in an organization that will utilize my educational background and allow development of my abilities to their fullest potential.</p>
+            </div>
+            
+            <!-- Skills with divider -->
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-title">SKILLS</div>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="section-bottom-divider"></div>
+
+            <div class="skills-section">
+                <div class="skill-row" style="color: #000000;">
+                    <span class="skill-name">Learning</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 67%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row" style="color: #000000;">
+                    <span class="skill-name">Programming</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row" style="color: #000000;">
+                    <span class="skill-name">Leadership</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row" style="color: #000000;">
+                    <span class="skill-name">Designing</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 66%;" ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row" style="color: #000000;">
+                    <span class="skill-name">Communication</span>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Software & Languages with divider -->
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-title">SOFTWARES & LANGUAGES</div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="section-bottom-divider"></div>
+
+            <div class="software-section">
+                <ul class="software-list" style="color: #000000;">
+                    <li class="software-item">C</li>
+                    <li class="software-item">C++</li>
+                    <li class="software-item">Sql</li>
+                    <li class="software-item">Java</li>
+                    <li class="software-item">Python</li>
+                    <li class="software-item">Dev++</li>
+                    <li class="software-item">Code Block</li>
+                    <li class="software-item">SQL Server</li>
+                    <li class="software-item">VS Code</li>
+                    <li class="software-item">Jupiter</li>
+
+                    
+                </ul>
+            </div>
+
+            <!-- Contact with divider -->
+            <div class="section-divider" style="color: #000000;">
+                <div class="section-divider-line" style="color: #000000;"></div>
+                <div class="">CONTACT</div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="section-bottom-divider"></div>
+
+            <div class="contact-section">
+                <div class="contact-info" style="color: #000000;">
+                    <p><i>📍</i> Korangi Industrial Area</p>
+                    <p><i>📞</i> +92 315 2674519</p>
+                    <p><i>✉️</i> Muqaddas.59830@iqra.edu.pk</p>
+                </div>
+            </div>
+            
+            <!-- Reference with divider -->
+            <div class="section-divider" style="color: #000000;">
+                <div class="section-divider-line"></div>
+                <div class="" style="color: #000000;">REFERENCE</div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="section-bottom-divider"></div>
+
+            <div class="reference-section">
+                <div class="reference-item" style="color: #000000;">
+                    <p><strong>Section is not available</strong><br></p>
+                </div>
+                <p>Other References Available on request</p>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-header main-header">WORK EXPERIENCE</h2>
+                
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col">Teacher</div>
+                        <div class="right-col">Nursery School</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col">mid2020 - early2021</div>
+                        <div class="description-col">
+                            Early childhood educator responsible for foundational instruction, 
+                            developmental assessment, and creating nurturing learning environment 
+                            for preschool students.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col"></div>
+                        <div class="right-col"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col"></div>
+                        <div class="description-col">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col"></div>
+                        <div class="right-col"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col"></div>
+                        <div class="description-col"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-header main-header">EDUCATION</h2>
+                
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col">BACHELOR OF COMPUTER SCIENCE</div>
+                        <div class="right-col">Iqra University</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col">2022 - Current</div>
+                        <div class="description-col">
+                            Currently pursuing degree in Software Engineering with focus on programming fundamentals, 
+                            software development methodologies, and system design. Active participant in university 
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col">Intermediate (Pre-engineering)</div>
+                        <div class="right-col">Government College for Women</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col">2019 - 2021</div>
+                        <div class="description-col">
+                            Cleared pre-engineering.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-container">
+                    <div class="header-row">
+                        <div class="left-col"></div>
+                        <div class="right-col"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="date-col"></div>
+                        <div class="description-col">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-header main-header">HOBBIES</h2>
+                <div class="hobbies-container">
+                    <div class="hobby-item">
+                        <img src="snooker-icon.jpg" alt="speaker" class="hobby-icon">
+                        <span class="hobby-name">Public speaking</span>
+                    </div>
+                    <div class="hobby-item">
+                        <img src="cricket-icon.jpg" alt="Debate" class="hobby-icon">
+                        <span class="hobby-name">Debate</span>
+                    </div>
+                    <div class="hobby-item">
+                        <img src="gaming-icon.jpg" alt="Gaming" class="hobby-icon">
+                        <span class="hobby-name">Gaming</span>
+                    </div>
+                    <div class="hobby-item">
+                        <img src="photography-icon.jpg" alt="Cricket" class="hobby-icon">
+                        <span class="hobby-name">Cricket</span>
+                    </div>
+                    <div class="hobby-item">
+                        <img src="travel-icon.jpg" alt="Traveling" class="hobby-icon">
+                        <span class="hobby-name">Traveling</span>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+</body>
+</html>
