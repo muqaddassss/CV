@@ -1,2 +1,2 @@
 # CV
-This a demo CV.
+This is a demo CV.
